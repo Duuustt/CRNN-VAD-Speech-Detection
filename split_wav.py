@@ -5,10 +5,15 @@ import numpy as np  # 用于数组操作
 import glob  # 用于查找符合特定规则的文件路径名
 import random  # 用于生成随机数
 import matplotlib.pyplot as plt
-# 配置文件路径
-wavDir = r"D:\pycharm projects\pythonProject\深度学习课设\数据集"  # 输入的语音文件夹路径
-savePath = r"pycharm projects\pythonProject\深度学习课设"  # 保存处理后文件的路径
-noisePath = r"D:\pycharm projects\pythonProject\深度学习课设\NOISE92X_16K\NOISE92X_16K"  # 噪声文件路径
+# 获取当前脚本所在目录
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 输入的语音文件夹路径（建议放在项目内的 data/raw）
+wavDir = os.path.join(base_dir, "data", "raw")
+# 保存处理后文件的路径
+savePath = os.path.join(base_dir, "data", "processed")
+# 噪声文件路径
+noisePath = os.path.join(base_dir, "data", "noise")
 
 # 配置参数
 segmentLength = 3  # 每个片段的时长（秒）
@@ -72,3 +77,4 @@ plt.title("Histogram of Audio Data")
 plt.xlabel("Amplitude")
 plt.ylabel("Frequency")
 plt.show()
+

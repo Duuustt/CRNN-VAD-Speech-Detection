@@ -15,8 +15,15 @@ batch_size = 32  # 每个批次的样本数量
 epochs = 50  # 训练的轮数
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')  # 选择设备（GPU或CPU）
 
-wavPath = r"D:\BaiduNetdiskDownload\216220120苏灿(保存)"  # 数据集路径
-modelPath = r"D:\BaiduNetdiskDownload\model"  # 模型保存路径
+# 获取当前脚本所在目录
+base_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 数据集路径：指向刚才 split_wav.py 生成数据的 savePath 
+# 建议在 data 目录下统一管理
+wavPath = os.path.join(base_dir, "data", "processed")  
+
+# 模型保存路径：建议放在项目根目录下的 models 文件夹
+modelPath = os.path.join(base_dir, "models")
 
 # 获取所有.wav文件路径
 allWav = glob.glob(os.path.join(wavPath, "*.wav"))
@@ -141,3 +148,4 @@ plt.legend()
 plt.tight_layout()
 plt.savefig(os.path.join(modelPath, "training_results.png"))
 plt.show()
+

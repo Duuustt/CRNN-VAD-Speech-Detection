@@ -88,22 +88,5 @@ class MyData(Dataset):
         assert inputData.shape[1] == labelVad.shape[0], "The shape of input data is different from that of label"
         return inputData, labelVad
 
-# # 假设音频文件在这个路径下
-# wavPath = r"D:\BaiduNetdiskDownload\216220120苏灿(保存)"
-# frameSize = 512  # 每帧的大小
-# hopeSize = 256  # 步长
-# # 获取所有的 WAV 文件
-# allWav = glob.glob(os.path.join(wavPath, "*.wav"))
-#
-# # 创建数据集实例
-# trainData = MyData(allWav, frameSize, hopeSize)
-# # 创建数据加载器实例，指定批大小为 32，并打乱数据
-# trainLoader = DataLoader(trainData, batch_size=32, shuffle=True)
-#
-# # 选择使用 GPU 或 CPU
-# device = "cuda" if torch.cuda.is_available() else "cpu"
-# print(device)
-#
-# # 示例：遍历数据加载器，输出数据的形状
-# for data, labels in trainLoader:
-#     print(data.shape, labels.shape)
+
+
